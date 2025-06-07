@@ -1,4 +1,4 @@
-# Deltarune Chapter 3 Debug Mode Script
+# Deltarune Debug Mode Script
 
 This script enables debug mode permanently in Deltarune Chapter 3.
 
@@ -7,7 +7,7 @@ This script enables debug mode permanently in Deltarune Chapter 3.
 
 ## Instructions
 1. Open UndertaleModTool
-2. Load the `data.win` file from the `chapter3_windows` folder
+2. Load the `data.win` file from the `(CHAPTER)_windows` folder
 3. Go to **Scripts** → **Run other script**
 4. Select and run the debug script from this repository
 
