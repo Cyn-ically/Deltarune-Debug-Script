@@ -55,7 +55,26 @@ else if (displayName == "DELTARUNE Chapter 2")
 else if (displayName == "DELTARUNE Chapter 3")
 {
     ScriptMessage("Detected DELTARUNE Chapter 3 - modifying one object");
-    
+    var obj_b0entrance = Data.GameObjects.ByName("obj_b0entrance");
+    if (obj_b0entrance != null)
+    {
+        var createCode = obj_b0entrance.EventHandlerFor(EventType.Create, (uint)0, Data);
+        if (createCode != null)
+        {
+            importGroup.QueueFindReplace(createCode,
+                "visit = 0;",
+                "visit = 0;\nchemg_show_room=1");
+        }
+
+        var drawCode = obj_b0entrance.EventHandlerFor(EventType.Draw, (uint)0, Data);
+        if (drawCode != null)
+        {
+            importGroup.QueueFindReplace(drawCode,
+                "global variable name 'chemg_show_room' index (100994) not set before reading it.",
+                "false");
+        }
+    }
+
     
     var obj_initializer2 = Data.GameObjects.ByName("obj_initializer2");
     if (obj_initializer2 != null)
