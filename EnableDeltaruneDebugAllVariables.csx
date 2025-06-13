@@ -163,6 +163,46 @@ else if (displayName == "DELTARUNE Chapter 3")
             importGroup.QueueFindReplace(initCode, "global.debug = 0;", "global.debug = 1;");
         }
     }
+        var scr_board_objname = Data.Code.ByName("gml_GlobalScript_scr_board_objname");
+    if (scr_board_objname != null)
+    {
+        ScriptMessage("Found gml_GlobalScript_scr_board_objname, replacing entire function");
+        
+        string newScr_board_objname = @"
+function scr_board_objname()
+{
+    if (scr_debug())
+    {
+        if (1)
+        {
+            var __cx = board_tilex(12) - 2;
+            var __cy = board_tiley(0);
+            
+            if (argument_count >= 1)
+                __cx = argument0;
+            
+            if (argument_count >= 2)
+                __cy = argument1;
+            
+            draw_set_halign(fa_right);
+            draw_set_font(fnt_main);
+            draw_set_color(c_aqua);
+            draw_text_outline(__cx, __cy, string_copy(object_get_name(object_index), 5, 99));
+            draw_set_font(fnt_small);
+            draw_set_halign(fa_left);
+            draw_set_color(c_white);
+        }
+    }
+}
+
+";
+        
+    importGroup.QueueReplace(scr_board_objname, newScr_board_objname);
+    }
+    else
+    {
+        ScriptMessage("Warning: Could not find scr_board_objname");
+    }
 
     importGroup.Import();
     ScriptMessage("Debug mode is now permanently enabled for DELTARUNE Chapter 3! Coded By Cyn-ically");
