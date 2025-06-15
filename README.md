@@ -1,5 +1,7 @@
 # Deltarune Debug Mode Script
 
+# 🚨 USE THE ONE BUILT-in UNDERTALEMODTOOL, this version is a fully fixed version of mine !
+
 This script enables debug mode permanently in Deltarune Chapter 3.
 
 ## Requirements
